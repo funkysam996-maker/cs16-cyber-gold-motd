@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>Cybernetic Gold Arsenal &amp; Interactive Shop</title>
+<style type="text/css">
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #080b11;
+    color: #d0d7e2;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.35;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.main-container {
+    width: 94%;
+    max-width: 95%;
+    margin: 8px auto 14px auto;
+}
+/* Header Table Layout */
+.header-box {
+    display: table;
+    width: 100%;
+    background-color: #101622;
+    border: 1px solid #c9a227;
+    border-bottom: 2px solid #ffd700;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+.header-cell-left {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+}
+.header-cell-right {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    white-space: nowrap;
+}
+.brand-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffd700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.brand-subtitle {
+    font-size: 10px;
+    color: #8fa3b8;
+    margin-top: 2px;
+}
+.stat-pill {
+    display: inline-block;
+    background-color: #172030;
+    border: 1px solid #3a4b63;
+    padding: 4px 9px;
+    margin-left: 5px;
+    font-size: 11px;
+    color: #c8d6e5;
+}
+.stat-pill-gold {
+    background-color: #1f1a0d;
+    border: 1px solid #ffd700;
+    color: #ffe680;
+    font-weight: bold;
+}
+/* Live Settings Status Bar */
+.status-strip {
+    display: table;
+    width: 100%;
+    background-color: #0d131d;
+    border: 1px solid #223044;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 11px;
+}
+.status-cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+.status-label {
+    color: #7f94ab;
+    font-weight: bold;
+}
+.status-val {
+    color: #ffd700;
+    font-weight: bold;
+}
+.status-val-on {
+    color: #4cd137;
+    font-weight: bold;
+}
+/* Navigation Tabs (Inline-Block / Float) */
+.nav-bar {
+    width: 100%;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #26354a;
+    padding-bottom: 4px;
+}
+.tab-btn {
+    display: inline-block;
+    background-color: #121926;
+    color: #9ab0c7;
+    border: 1px solid #26354a;
+    padding: 5px 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.tab-btn:hover {
+    background-color: #1b2638;
+    border-color: #d4af37;
+    color: #ffffff;
+}
+.tab-btn-active {
+    background-color: #261f0d;
+    border-color: #ffd700;
+    color: #ffd700;
+}
+/* Command Feedback Box */
+.cmd-banner {
+    display: table;
+    width: 100%;
+    background-color: #131c2b;
+    border: 1px solid #2f425c;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+}
+.cmd-banner-left {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11px;
+    color: #b8c7d9;
+}
+.cmd-banner-right {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    width: 240px;
+}
+.cmd-input {
+    width: 220px;
+    background-color: #090d14;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    padding: 3px 6px;
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+/* Two-Column Float Layout */
+.col-half {
+    float: left;
+    width: 49.2%;
+    margin-bottom: 8px;
+}
+.col-left {
+    margin-right: 1.6%;
+}
+@media screen and (max-width: 720px) {
+    .col-half {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+.panel-card {
+    background-color: #0e141f;
+    border: 1px solid #223044;
+    margin-bottom: 8px;
+}
+.panel-header {
+    background-color: #162030;
+    border-bottom: 1px solid #2b3c54;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.shop-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.shop-table tr {
+    border-bottom: 1px solid #172130;
+    transition: background 0.15s ease;
+}
+.shop-table tr:hover {
+    background-color: #162030;
+}
+.shop-table td {
+    padding: 5px 8px;
+    vertical-align: middle;
+}
+.item-title {
+    font-weight: bold;
+    color: #eef3f8;
+    font-size: 11px;
+}
+.item-desc {
+    color: #8295aa;
+    font-size: 10px;
+    margin-left: 4px;
+}
+.badge-tier {
+    display: inline-block;
+    padding: 1px 4px;
+    font-size: 9px;
+    font-weight: bold;
+    margin-left: 3px;
+}
+.tier-bronze { color: #e09145; border: 1px solid #7a491d; background-color: #1f140b; }
+.tier-silver { color: #d0d8e0; border: 1px solid #5a6673; background-color: #171c21; }
+.tier-gold   { color: #ffd700; border: 1px solid #997a00; background-color: #241d08; }
+.tier-active { color: #4cd137; border: 1px solid #2b7a1f; background-color: #0e2411; }
+.price-cell {
+    text-align: right;
+    color: #ffdf70;
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+    padding-right: 4px;
+}
+.action-cell {
+    text-align: right;
+    white-space: nowrap;
+    width: 110px;
+}
+.btn {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 3px;
+    border: 1px solid #444444;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-buy {
+    background-color: #c99e10;
+    border-color: #ffe066;
+    color: #090c12;
+}
+.btn-buy:hover {
+    background-color: #ffd700;
+    border-color: #ffffff;
+    color: #000000;
+}
+.btn-sell {
+    background-color: #5c1616;
+    border-color: #b33939;
+    color: #ffd6d6;
+}
+.btn-sell:hover {
+    background-color: #8c2222;
+    border-color: #ff6b6b;
+    color: #ffffff;
+}
+.btn-opt {
+    background-color: #1b2a40;
+    border-color: #3b5980;
+    color: #d6e4f5;
+}
+.btn-opt:hover {
+    background-color: #294263;
+    border-color: #70a1ff;
+    color: #ffffff;
+}
+.tab-section {
+    display: none;
+}
+.tab-section-active {
+    display: block;
+}
+/* Footer */
+.footer-box {
+    display: table;
+    width: 100%;
+    background-color: #0d121b;
+    border: 1px solid #1f2c3f;
+    padding: 6px 10px;
+    margin-top: 4px;
+    font-size: 10px;
+    color: #7c8fa3;
+}
+.footer-left {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+.footer-right {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <!-- Header -->
+    <div class="header-box">
+        <div class="header-cell-left">
+            <div class="brand-title">* CYBERNETIC GOLD ARSENAL &amp; SHOP *</div>
+            <div class="brand-subtitle">v14.0-Pro Hybrid // Classic v9.0 Gold Menu + Persistent nVault + GoldSrc Safe MOTD</div>
+        </div>
+        <div class="header-cell-right">
+            <span class="stat-pill">Role: <strong id="ui-role" style="color:#ffd700;">{ROLE}</strong></span>
+            <span class="stat-pill stat-pill-gold">Gold Points: <span id="ui-points">{POINTS}</span></span>
+        </div>
+    </div>
+
+    <!-- Live Settings Bar (Respects Current User Settings) -->
+    <div class="status-strip">
+        <div class="status-cell">
+            <span class="status-label">Saved Gun Preset:</span>
+            <span class="status-val" id="ui-preset">{PRESET}</span>
+        </div>
+        <div class="status-cell">
+            <span class="status-label">Auto-Buy on Spawn:</span>
+            <span class="status-val-on" id="ui-autobuy">{AUTO_BUY}</span>
+        </div>
+        <div class="status-cell">
+            <span class="status-label">Menu Mode:</span>
+            <span class="status-val" id="ui-menumode">{MENU_MODE}</span>
+        </div>
+        <div class="status-cell">
+            <span class="status-label">Shield / Aura FX:</span>
+            <span class="status-val" id="ui-fx">{SHIELD_COLOR} / {AURA_COLOR}</span>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-bar">
+        <a href="javascript:void(0);" class="tab-btn tab-btn-active" id="tabbtn-all" onclick="switchTab('all')">ALL CATEGORIES</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-weapons" onclick="switchTab('weapons')">1. WEAPONS &amp; PRESETS</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-element" onclick="switchTab('element')">2. POISON &amp; ELEMENTAL</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-combat" onclick="switchTab('combat')">3. COMBAT &amp; SHIELDS</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-mobility" onclick="switchTab('mobility')">4. MOBILITY &amp; TACTICAL</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-vip" onclick="switchTab('vip')">5. ELITE VIP &amp; PASSES</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-settings" onclick="switchTab('settings')">6. SETTINGS &amp; MODE</a>
+    </div>
+
+    <!-- Interactive Command Helper Banner -->
+    <div class="cmd-banner">
+        <div class="cmd-banner-left" id="cmd-status-text">
+            Tip: Click any <strong>BUY</strong>, <strong>SELL</strong>, or <strong>PRESET</strong> button below. If your CS 1.6 build blocks MOTD links, copy or type the command shown on the right in chat/console!
+        </div>
+        <div class="cmd-banner-right">
+            <input type="text" id="cmd-preview" class="cmd-input" value="say /gold" readonly="readonly">
+        </div>
+    </div>
+
+    <!-- SECTION: WEAPONS & SAVED PRESETS -->
+    <div id="sec-weapons" class="tab-section tab-section-active">
+        <div class="clearfix">
+            <div class="col-half col-left">
+                <div class="panel-card">
+                    <div class="panel-header">* Golden Weapons Arsenal (VIP / Admin / Gold Pass)</div>
+                    <table class="shop-table">
+                        <tr>
+                            <td><span class="item-title">1. Golden AK-47 + Golden Deagle</span> <span class="item-desc">(200 AP, Golden Nades)</span></td>
+                            <td class="price-cell">FREE (Gold)</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset gold1" onclick="triggerCmd('say /preset gold1', 'Equip &amp; Save Golden AK-47 Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">2. Golden M4A1 + Golden Deagle</span> <span class="item-desc">(200 AP, Golden Nades)</span></td>
+                            <td class="price-cell">FREE (Gold)</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset gold2" onclick="triggerCmd('say /preset gold2', 'Equip &amp; Save Golden M4A1 Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">3. Golden AWP + Golden Deagle</span> <span class="item-desc">(200 AP, Golden Nades)</span></td>
+                            <td class="price-cell">FREE (Gold)</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset gold3" onclick="triggerCmd('say /preset gold3', 'Equip &amp; Save Golden AWP Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">4. Golden Deagle Pack</span> <span class="item-desc">(200 AP, Golden Nades)</span></td>
+                            <td class="price-cell">FREE (Gold)</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset gold4" onclick="triggerCmd('say /preset gold4', 'Equip &amp; Save Golden Deagle Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">5. Golden USP &amp; Glock Pack</span> <span class="item-desc">(200 AP, Golden Nades)</span></td>
+                            <td class="price-cell">FREE (Gold)</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset gold5" onclick="triggerCmd('say /preset gold5', 'Equip &amp; Save Golden USP/Glock Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-half">
+                <div class="panel-card">
+                    <div class="panel-header">* Silver Weapon Arsenal &amp; Preset Controls</div>
+                    <table class="shop-table">
+                        <tr>
+                            <td><span class="item-title">1. Silver M4A1 + Deagle Pack</span> <span class="item-desc">(100 AP, Nades)</span></td>
+                            <td class="price-cell">FREE</td>
+                            <td class="action-cell">
+                                <a class="btn btn-opt" href="cmd:say /preset silver1" onclick="triggerCmd('say /preset silver1', 'Equip &amp; Save Silver M4A1 Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">2. Silver AK-47 + Deagle Pack</span> <span class="item-desc">(100 AP, Nades)</span></td>
+                            <td class="price-cell">FREE</td>
+                            <td class="action-cell">
+                                <a class="btn btn-opt" href="cmd:say /preset silver2" onclick="triggerCmd('say /preset silver2', 'Equip &amp; Save Silver AK-47 Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">3. Silver AWP + Deagle Pack</span> <span class="item-desc">(100 AP, Nades)</span></td>
+                            <td class="price-cell">FREE</td>
+                            <td class="action-cell">
+                                <a class="btn btn-opt" href="cmd:say /preset silver3" onclick="triggerCmd('say /preset silver3', 'Equip &amp; Save Silver AWP Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">4. Silver USP &amp; Glock Pack</span> <span class="item-desc">(100 AP, Nades)</span></td>
+                            <td class="price-cell">FREE</td>
+                            <td class="action-cell">
+                                <a class="btn btn-opt" href="cmd:say /preset silver4" onclick="triggerCmd('say /preset silver4', 'Equip &amp; Save Silver Pistol Preset')">EQUIP / SAVE</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">Toggle Saved Preset Auto-Buy</span> <span class="item-desc">(Press N or /guns to change)</span></td>
+                            <td class="price-cell">{AUTO_BUY}</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /preset toggle" onclick="triggerCmd('say /preset toggle', 'Toggle Auto-Buy Saved Weapon Preset')">TOGGLE</a>
+                                <a class="btn btn-sell" href="cmd:say /preset clear" onclick="triggerCmd('say /preset clear', 'Clear Saved Weapon Preset')">CLEAR</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: POISON & ELEMENTAL + COMBAT -->
+    <div id="sec-element" class="tab-section tab-section-active">
+        <div class="clearfix">
+            <div class="col-half col-left">
+                <div class="panel-card">
+                    <div class="panel-header">* Poison &amp; Elemental Munitions (Buy &amp; Sell)</div>
+                    <table class="shop-table">
+                        <tr id="row-poison1">
+                            <td><span class="item-title">Poison Bullets</span> <span class="badge-tier tier-bronze">BRONZE</span> <span class="item-desc">(-1 HP/s, 3s)</span></td>
+                            <td class="price-cell">150 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy poison1" onclick="triggerCmd('say /buy poison1', 'Buy Bronze Poison Bullets (150 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell poison1" onclick="triggerCmd('say /sell poison1', 'Sell Bronze Poison (+150 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-poison2">
+                            <td><span class="item-title">Poison Bullets</span> <span class="badge-tier tier-silver">SILVER</span> <span class="item-desc">(-2 HP/s, 4s)</span></td>
+                            <td class="price-cell">350 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy poison2" onclick="triggerCmd('say /buy poison2', 'Buy Silver Poison Bullets (350 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell poison2" onclick="triggerCmd('say /sell poison2', 'Sell Silver Poison (+350 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-poison3">
+                            <td><span class="item-title">Poison Bullets</span> <span class="badge-tier tier-gold">GOLD</span> <span class="item-desc">(-4 HP/s, 5s + Lift)</span></td>
+                            <td class="price-cell">600 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy poison3" onclick="triggerCmd('say /buy poison3', 'Buy Gold Poison Bullets (600 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell poison3" onclick="triggerCmd('say /sell poison3', 'Sell Gold Poison (+600 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-cryo">
+                            <td><span class="item-title">Cryo Frost Bullets</span> <span class="item-desc">(Chills &amp; slows enemy)</span></td>
+                            <td class="price-cell">200 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy cryo" onclick="triggerCmd('say /buy cryo', 'Buy Cryo Frost Bullets (200 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell cryo" onclick="triggerCmd('say /sell cryo', 'Sell Cryo Frost Bullets')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-shock">
+                            <td><span class="item-title">Electro-Shock Rounds</span> <span class="item-desc">(Aim jitter + sparks)</span></td>
+                            <td class="price-cell">180 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy shock" onclick="triggerCmd('say /buy shock', 'Buy Electro-Shock Rounds (180 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell shock" onclick="triggerCmd('say /sell shock', 'Sell Electro-Shock Rounds')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-fire">
+                            <td><span class="item-title">Dragon's Breath Fire</span> <span class="item-desc">(Incendiary burn ticks)</span></td>
+                            <td class="price-cell">200 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy fire" onclick="triggerCmd('say /buy fire', 'Buy Dragon Breath Rounds (200 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell fire" onclick="triggerCmd('say /sell fire', 'Sell Dragon Breath Rounds')">SELL</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-half" id="sec-combat-inner">
+                <div class="panel-card">
+                    <div class="panel-header">* Combat Systems &amp; Protective Shields</div>
+                    <table class="shop-table">
+                        <tr id="row-shield">
+                            <td><span class="item-title">Plasma Shield (100 HP)</span> <span class="item-desc">(Absorbs damage + Glow)</span></td>
+                            <td class="price-cell">300 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy shield" onclick="triggerCmd('say /buy shield', 'Buy Plasma Shield 100 HP (300 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell shield" onclick="triggerCmd('say /sell shield', 'Sell Plasma Shield (+300 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-shield3">
+                            <td><span class="item-title">Titan Plasma Shield (175 HP)</span> <span class="badge-tier tier-gold">MAX</span></td>
+                            <td class="price-cell">500 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy shield3" onclick="triggerCmd('say /buy shield3', 'Buy Titan Shield 175 HP (500 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell shield3" onclick="triggerCmd('say /sell shield3', 'Sell Titan Shield (+500 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-titan">
+                            <td><span class="item-title">Titan Heavy Munitions</span> <span class="item-desc">(+25% Weapon Damage)</span></td>
+                            <td class="price-cell">450 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy titan" onclick="triggerCmd('say /buy titan', 'Buy Titan Heavy Munitions (450 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell titan" onclick="triggerCmd('say /sell titan', 'Sell Titan Munitions (+450 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-leech">
+                            <td><span class="item-title">Vampiric Nano-Leech</span> <span class="item-desc">(20% Lifesteal + 25 HP/kill)</span></td>
+                            <td class="price-cell">400 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy leech" onclick="triggerCmd('say /buy leech', 'Buy Vampiric Nano-Leech (400 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell leech" onclick="triggerCmd('say /sell leech', 'Sell Vampiric Nano-Leech (+400 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-knock">
+                            <td><span class="item-title">Kinetic Knockback Impactor</span> <span class="item-desc">(Pushes enemies)</span></td>
+                            <td class="price-cell">180 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy knock" onclick="triggerCmd('say /buy knock', 'Buy Kinetic Knockback (180 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell knock" onclick="triggerCmd('say /sell knock', 'Sell Kinetic Knockback')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-reflect">
+                            <td><span class="item-title">Reflective Mirror Nanites</span> <span class="item-desc">(Reflects bullet dmg)</span></td>
+                            <td class="price-cell">220 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy reflect" onclick="triggerCmd('say /buy reflect', 'Buy Reflective Nanites (220 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell reflect" onclick="triggerCmd('say /sell reflect', 'Sell Reflective Nanites')">SELL</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: MOBILITY, TACTICAL & ELITE VIP -->
+    <div id="sec-mobility" class="tab-section tab-section-active">
+        <div class="clearfix">
+            <div class="col-half col-left">
+                <div class="panel-card">
+                    <div class="panel-header">* Mobility &amp; Tactical Systems</div>
+                    <table class="shop-table">
+                        <tr id="row-speed">
+                            <td><span class="item-title">Hermes Speed Boots</span> <span class="item-desc">(+25% Movement Speed)</span></td>
+                            <td class="price-cell">250 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy speed" onclick="triggerCmd('say /buy speed', 'Buy Hermes Speed Boots (250 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell speed" onclick="triggerCmd('say /sell speed', 'Sell Hermes Speed Boots (+250 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-djump1">
+                            <td><span class="item-title">Cyber Multi-Jump</span> <span class="item-desc">(Double / Triple / Quad)</span></td>
+                            <td class="price-cell">200-550p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy djump1" onclick="triggerCmd('say /buy djump1', 'Buy Double Jump (200 Pts)')">2X</a>
+                                <a class="btn btn-buy" href="cmd:say /buy djump2" onclick="triggerCmd('say /buy djump2', 'Buy Triple Jump (350 Pts)')">3X</a>
+                                <a class="btn btn-sell" href="cmd:say /sell djump1" onclick="triggerCmd('say /sell djump1', 'Sell Multi-Jump')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-gravity">
+                            <td><span class="item-title">Moon Anti-Gravity (55%)</span> <span class="item-desc">(High jump thrusters)</span></td>
+                            <td class="price-cell">200 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy gravity" onclick="triggerCmd('say /buy gravity', 'Buy Moon Anti-Gravity (200 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell gravity" onclick="triggerCmd('say /sell gravity', 'Sell Moon Anti-Gravity (+200 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-silent">
+                            <td><span class="item-title">Ghost Silent Steps</span> <span class="item-desc">(Zero footstep sound)</span></td>
+                            <td class="price-cell">200 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy silent" onclick="triggerCmd('say /buy silent', 'Buy Ghost Silent Steps (200 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell silent" onclick="triggerCmd('say /sell silent', 'Sell Ghost Silent Steps (+200 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-heal">
+                            <td><span class="item-title">Nanite HP + Bionic Armor Regen</span> <span class="item-desc">(Auto-repair)</span></td>
+                            <td class="price-cell">180/250p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy heal" onclick="triggerCmd('say /buy heal', 'Buy Nanite HP Regen (180 Pts)')">+HP</a>
+                                <a class="btn btn-buy" href="cmd:say /buy armor" onclick="triggerCmd('say /buy armor', 'Buy Bionic Armor Regen (250 Pts)')">+AP</a>
+                                <a class="btn btn-sell" href="cmd:say /sell heal" onclick="triggerCmd('say /sell heal', 'Sell HP Regen')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-uav">
+                            <td><span class="item-title">Radar UAV / Anti-Flash / Synth</span> <span class="item-desc">(Tactical)</span></td>
+                            <td class="price-cell">180-200p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy uav" onclick="triggerCmd('say /buy uav', 'Buy Radar UAV Scanner (200 Pts)')">UAV</a>
+                                <a class="btn btn-buy" href="cmd:say /buy antiflash" onclick="triggerCmd('say /buy antiflash', 'Buy Anti-Flash Shades (180 Pts)')">FLASH</a>
+                                <a class="btn btn-buy" href="cmd:say /buy synth" onclick="triggerCmd('say /buy synth', 'Buy Ammo Synthesizer (180 Pts)')">AMMO</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-half" id="sec-vip-inner">
+                <div class="panel-card">
+                    <div class="panel-header">* Elite VIP Tech &amp; Gold Access Subscriptions</div>
+                    <table class="shop-table">
+                        <tr id="row-access">
+                            <td><span class="item-title">Golden VIP Access Pass (24 Hours)</span> <span class="badge-tier tier-gold">VIP</span></td>
+                            <td class="price-cell">100 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy access" onclick="triggerCmd('say /buy access', 'Buy 24H Golden VIP Access (100 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell access" onclick="triggerCmd('say /sell access', 'Refund 24H Golden Access (+100 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-aim">
+                            <td><span class="item-title">Golden Aim Laser Lock</span> <span class="item-desc">(-85% Spread &amp; Recoil)</span></td>
+                            <td class="price-cell">1000 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy aim" onclick="triggerCmd('say /buy aim', 'Buy Golden Aim Lock (1000 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell aim" onclick="triggerCmd('say /sell aim', 'Sell Golden Aim Lock (+1000 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-invis">
+                            <td><span class="item-title">Predator Stealth Cloak</span> <span class="item-desc">(80% / 100% Invis)</span></td>
+                            <td class="price-cell">500/1000p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy invis2" onclick="triggerCmd('say /buy invis2', 'Buy 80% Cloak (500 Pts)')">80%</a>
+                                <a class="btn btn-buy" href="cmd:say /buy invis3" onclick="triggerCmd('say /buy invis3', 'Buy 100% Cloak (1000 Pts)')">100%</a>
+                                <a class="btn btn-sell" href="cmd:say /sell invis2" onclick="triggerCmd('say /sell invis2', 'Sell Cloak')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-phoenix">
+                            <td><span class="item-title">Phoenix Rebirth Core</span> <span class="item-desc">(Auto-Revive on Death)</span></td>
+                            <td class="price-cell">750 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy phoenix" onclick="triggerCmd('say /buy phoenix', 'Buy Phoenix Rebirth (750 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell phoenix" onclick="triggerCmd('say /sell phoenix', 'Sell Phoenix Rebirth (+750 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-aura">
+                            <td><span class="item-title">Radiant Golden Aura</span> <span class="item-desc">(2x Points + Shockwave)</span></td>
+                            <td class="price-cell">900 Pts</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy aura" onclick="triggerCmd('say /buy aura', 'Buy Radiant Golden Aura (900 Pts)')">BUY</a>
+                                <a class="btn btn-sell" href="cmd:say /sell aura" onclick="triggerCmd('say /sell aura', 'Sell Radiant Golden Aura (+900 Pts)')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-rage">
+                            <td><span class="item-title">Berserker Rage + Cluster Nade</span> <span class="item-desc">(Combat Tech)</span></td>
+                            <td class="price-cell">250/300p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy rage" onclick="triggerCmd('say /buy rage', 'Buy Berserker Rage (250 Pts)')">RAGE</a>
+                                <a class="btn btn-buy" href="cmd:say /buy cluster" onclick="triggerCmd('say /buy cluster', 'Buy Cluster Grenade (300 Pts)')">NADE</a>
+                                <a class="btn btn-sell" href="cmd:say /sell rage" onclick="triggerCmd('say /sell rage', 'Sell Berserker Rage')">SELL</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: USER SETTINGS & MENU MODE -->
+    <div id="sec-settings" class="tab-section tab-section-active">
+        <div class="panel-card">
+            <div class="panel-header">* Persistent User Settings &amp; Menu Preference (Saved in nVault Across Maps)</div>
+            <table class="shop-table">
+                <tr>
+                    <td><span class="item-title">Menu Display Preference</span> <span class="item-desc">(Current: <strong>{MENU_MODE}</strong> | Switch between Classic AMX Menu, MOTD, or Both)</span></td>
+                    <td class="price-cell">{MENU_MODE}</td>
+                    <td class="action-cell">
+                        <a class="btn btn-opt" href="cmd:say /menumode classic" onclick="triggerCmd('say /menumode classic', 'Set Menu Mode: Classic AMX Menu Only')">CLASSIC</a>
+                        <a class="btn btn-opt" href="cmd:say /menumode motd" onclick="triggerCmd('say /menumode motd', 'Set Menu Mode: MOTD Window Only')">MOTD</a>
+                        <a class="btn btn-buy" href="cmd:say /menumode both" onclick="triggerCmd('say /menumode both', 'Set Menu Mode: Both Classic + MOTD')">BOTH</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="item-title">Visual FX &amp; Colors</span> <span class="item-desc">(Shield: <strong>{SHIELD_COLOR}</strong> | Aura: <strong>{AURA_COLOR}</strong> | Fade: <strong>{FADE_MODE}</strong> | Shake: <strong>{SHAKE_MODE}</strong>)</span></td>
+                    <td class="price-cell">CUSTOM</td>
+                    <td class="action-cell">
+                        <a class="btn btn-opt" href="cmd:say /settings" onclick="triggerCmd('say /settings', 'Open In-Game Settings Menu')">OPEN /SETTINGS</a>
+                        <a class="btn btn-opt" href="cmd:say /classicshop" onclick="triggerCmd('say /classicshop', 'Open Classic In-Game Shop Menu')">CLASSIC SHOP</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-box">
+        <div class="footer-left">
+            Authors: <strong style="color:#ffd700;">Mrghosty996 &amp; Ghost996 &amp; Deadly|Darkness</strong> | Chat Shortcuts: <strong>/gold</strong>, <strong>/guns</strong>, <strong>/shop</strong>, <strong>/settings</strong>, <strong>/dropgold</strong>, or press <strong>[N]</strong>
+        </div>
+        <div class="footer-right">
+            Active Perks: <strong style="color:#4cd137;" id="ui-active-perks">{ACTIVE_PERKS}</strong>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+/* Strict ES5 JavaScript Only - Wrapped in try/catch for GoldSrc MSHTML Stability */
+function switchTab(tabName) {
+    try {
+        var sections = ['weapons', 'element', 'mobility', 'settings'];
+        var i;
+        for (i = 0; i < sections.length; i++) {
+            var secEl = document.getElementById('sec-' + sections[i]);
+            if (secEl) {
+                if (tabName === 'all') {
+                    secEl.className = 'tab-section tab-section-active';
+                } else if (tabName === 'combat' && sections[i] === 'element') {
+                    secEl.className = 'tab-section tab-section-active';
+                } else if (tabName === 'vip' && sections[i] === 'mobility') {
+                    secEl.className = 'tab-section tab-section-active';
+                } else if (sections[i] === tabName) {
+                    secEl.className = 'tab-section tab-section-active';
+                } else {
+                    secEl.className = 'tab-section';
+                }
+            }
+        }
+
+        var btns = ['all', 'weapons', 'element', 'combat', 'mobility', 'vip', 'settings'];
+        for (i = 0; i < btns.length; i++) {
+            var btnEl = document.getElementById('tabbtn-' + btns[i]);
+            if (btnEl) {
+                if (btns[i] === tabName) {
+                    btnEl.className = 'tab-btn tab-btn-active';
+                } else {
+                    btnEl.className = 'tab-btn';
+                }
+            }
+        }
+    } catch (e) {}
+}
+
+function triggerCmd(cmdStr, descStr) {
+    try {
+        var inputEl = document.getElementById('cmd-preview');
+        if (inputEl) {
+            inputEl.value = cmdStr;
+            inputEl.focus();
+            inputEl.select();
+        }
+        var statusEl = document.getElementById('cmd-status-text');
+        if (statusEl) {
+            statusEl.innerHTML = 'Selected: <strong style="color:#ffd700;">' + descStr + '</strong> &mdash; Command: <strong style="color:#4cd137;">' + cmdStr + '</strong>';
+        }
+        if (window.clipboardData && window.clipboardData.setData) {
+            window.clipboardData.setData('Text', cmdStr);
+        }
+    } catch (e) {}
+}
+
+function getQueryParam(key) {
+    try {
+        var q = window.location.search;
+        if (!q || q.length < 2) {
+            return '';
+        }
+        var pairs = q.substring(1).split('&');
+        var i;
+        for (i = 0; i < pairs.length; i++) {
+            var parts = pairs[i].split('=');
+            if (parts[0] === key && parts.length > 1) {
+                var raw = parts.slice(1).join('=').replace(/\+/g, ' ');
+                return decodeURIComponent(raw);
+            }
+        }
+    } catch (e) {}
+    return '';
+}
+
+function setElText(id, val, fallback) {
+    try {
+        var el = document.getElementById(id);
+        if (!el) {
+            return;
+        }
+        if (val && val.length > 0) {
+            el.innerHTML = val;
+        } else if (el.innerHTML.indexOf('{') !== -1) {
+            el.innerHTML = fallback;
+        }
+    } catch (e) {}
+}
+
+function initShopPage() {
+    try {
+        var qPts = getQueryParam('pts');
+        var qRole = getQueryParam('role');
+        var qPreset = getQueryParam('preset');
+        var qAuto = getQueryParam('autobuy');
+        var qMode = getQueryParam('mode');
+        var qFx = getQueryParam('fx');
+        var qPerks = getQueryParam('perks');
+
+        setElText('ui-points', qPts, '1000');
+        setElText('ui-role', qRole, 'GOLD VIP');
+        setElText('ui-preset', qPreset, 'Golden AK-47 Pack');
+        setElText('ui-autobuy', qAuto, 'ON');
+        setElText('ui-menumode', qMode, 'Both (Classic + MOTD)');
+        setElText('ui-fx', qFx, 'Cyan / Gold');
+        setElText('ui-active-perks', qPerks, 'Ready');
+    } catch (e) {}
+}
+
+try {
+    window.onload = initShopPage;
+} catch (e) {}
+</script>
+</body>
+</html>
