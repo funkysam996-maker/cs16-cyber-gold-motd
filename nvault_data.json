@@ -1,0 +1,138 @@
+{
+  "plugin": "Cybernetic Gold & Weapon Menu System Pro",
+  "version": "15.0-Ultimate",
+  "repository": "https://github.com/funkysam996-maker/cs16-cyber-gold-motd",
+  "motd_url": "https://funkysam996-maker.github.io/cs16-cyber-gold-motd/",
+  "last_sync_utc": "2026-11-05T20:31:40Z",
+  "server": {
+    "hostname": "Ghost Cybernetic Gold v15.0-Ultimate Official Server",
+    "ip": "127.0.0.1:27015",
+    "map": "de_dust2",
+    "duration_mode": 0,
+    "max_perks": 0,
+    "shop_mode": "Classic Text Menu (Crash-Free Mode 0)"
+  },
+  "servers_registry": [
+    {
+      "id": "SRV-01",
+      "hostname": "Ghost Cybernetic Gold v15.0-Ultimate [Official EU #1]",
+      "ip": "192.168.1.100:27015",
+      "map": "de_dust2",
+      "players": "24/32",
+      "version": "15.0-Ultimate",
+      "status": "ONLINE"
+    },
+    {
+      "id": "SRV-02",
+      "hostname": "Ghost Cyber Arsenal Pro [Phase-Shift & Quantum Lab #2]",
+      "ip": "127.0.0.1:27015",
+      "map": "de_inferno",
+      "players": "18/32",
+      "version": "15.0-Ultimate",
+      "status": "ONLINE"
+    }
+  ],
+  "admins": [
+    {
+      "name": "Ghost 996 (Mrghosty996)",
+      "authid": "STEAM_0:1:99600001",
+      "role": "Founder & System Architect",
+      "flags": "abcdefghijklmnopqrstu (FLAG_ADMIN)",
+      "points": 999999
+    },
+    {
+      "name": "Deadly|Darkness",
+      "authid": "STEAM_0:0:44819210",
+      "role": "Lead Co-Author & Security Admin",
+      "flags": "abcdefghijklmnopqrstu (FLAG_ADMIN)",
+      "points": 999999
+    }
+  ],
+  "users": [
+    {
+      "name": "Ghost 996",
+      "authid": "STEAM_0:1:99600001",
+      "ip": "127.0.0.1",
+      "role": "ADMIN",
+      "golden_points": 999999,
+      "golden_vip": true,
+      "lifetime_vip": true,
+      "teleport_mode": "AUTOMATIC",
+      "explosion_style": "Cyan Plasma Nova",
+      "active_perks_count": 14,
+      "features_bought": [
+        "Golden VIP Access (Lifetime)",
+        "Phase-Shift Execution T3 (Corpse Plasma Explosion + Blink Teleport)",
+        "Gravity Vortex Rounds T3",
+        "Cyber Chrono Rewind T3",
+        "Orbital Ion Cannon T3",
+        "Tesla Chain-Lightning T3",
+        "Aegis Nano-Dome T3",
+        "Phantom Hologram Decoy T3",
+        "Guillotine Executioner T3",
+        "EMP Armor Siphon T3",
+        "Meteor Slam Boots T3",
+        "Soul Harvester T3",
+        "Golden Aim (-85% Recoil)",
+        "Venomous Bite T3 (Gold)"
+      ]
+    },
+    {
+      "name": "Deadly|Darkness",
+      "authid": "STEAM_0:0:44819210",
+      "ip": "127.0.0.1",
+      "role": "ADMIN",
+      "golden_points": 999999,
+      "golden_vip": true,
+      "lifetime_vip": true,
+      "teleport_mode": "MANUAL [Press E]",
+      "explosion_style": "Crimson Blood Supernova",
+      "active_perks_count": 10,
+      "features_bought": [
+        "Golden VIP Access (Lifetime)",
+        "Phase-Shift Execution T3 (Manual [E] Teleport)",
+        "Orbital Ion Cannon T3",
+        "Guillotine Executioner T3",
+        "Soul Harvester T3",
+        "Titan Rounds T3",
+        "Phoenix Revival T3"
+      ]
+    },
+    {
+      "name": "CyberHunter_X",
+      "authid": "STEAM_0:1:58291044",
+      "ip": "192.168.1.45",
+      "role": "VIP",
+      "golden_points": 14850,
+      "golden_vip": true,
+      "lifetime_vip": false,
+      "teleport_mode": "AUTOMATIC",
+      "explosion_style": "Void Purple Singularity",
+      "active_perks_count": 5,
+      "features_bought": [
+        "Golden VIP Access",
+        "Phase-Shift Execution T2",
+        "Tesla Chain-Lightning T2",
+        "Meteor Slam Boots T2",
+        "Double Jump T3"
+      ]
+    },
+    {
+      "name": "NovaStalker",
+      "authid": "STEAM_0:0:77412903",
+      "ip": "192.168.1.88",
+      "role": "PLAYER",
+      "golden_points": 4200,
+      "golden_vip": false,
+      "lifetime_vip": false,
+      "teleport_mode": "MANUAL [Press E]",
+      "explosion_style": "Solar Gold Flare",
+      "active_perks_count": 3,
+      "features_bought": [
+        "Phase-Shift Execution T1",
+        "EMP Armor Siphon T2",
+        "Speed Boots T2"
+      ]
+    }
+  ]
+}
