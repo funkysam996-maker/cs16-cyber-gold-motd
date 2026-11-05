@@ -331,7 +331,7 @@ html, body {
     <div class="header-box">
         <div class="header-cell-left">
             <div class="brand-title">* CYBERNETIC GOLD ARSENAL &amp; SHOP *</div>
-            <div class="brand-subtitle">v14.0-Pro Hybrid // Classic v9.0 Gold Menu + Persistent nVault + GoldSrc Safe MOTD</div>
+            <div class="brand-subtitle">v15.0-Ultimate // Crash-Free Classic Menus + Phase-Shift Corpse Explosion &amp; Teleport + GitHub Cloud nVault</div>
         </div>
         <div class="header-cell-right">
             <span class="stat-pill">Role: <strong id="ui-role" style="color:#ffd700;">{ROLE}</strong></span>
@@ -361,13 +361,14 @@ html, body {
 
     <!-- Navigation Tabs -->
     <div class="nav-bar">
-        <a href="javascript:void(0);" class="tab-btn tab-btn-active" id="tabbtn-all" onclick="switchTab('all')">ALL CATEGORIES</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-weapons" onclick="switchTab('weapons')">1. WEAPONS &amp; PRESETS</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-element" onclick="switchTab('element')">2. POISON &amp; ELEMENTAL</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-combat" onclick="switchTab('combat')">3. COMBAT &amp; SHIELDS</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-mobility" onclick="switchTab('mobility')">4. MOBILITY &amp; TACTICAL</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-vip" onclick="switchTab('vip')">5. ELITE VIP &amp; PASSES</a>
-        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-settings" onclick="switchTab('settings')">6. SETTINGS &amp; MODE</a>
+        <a href="javascript:void(0);" class="tab-btn tab-btn-active" id="tabbtn-all" onclick="switchTab('all')">ALL CATEGORIES (38 PERKS)</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-phaselab" onclick="switchTab('phaselab')" style="border-color:#00e5ff;color:#70f3ff;">1. PHASE-SHIFT &amp; QUANTUM LAB [NEW]</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-nvault" onclick="switchTab('nvault')" style="border-color:#4cd137;color:#88ff70;">2. GITHUB CLOUD NVAULT [LIVE DB]</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-weapons" onclick="switchTab('weapons')">3. WEAPONS &amp; PRESETS</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-element" onclick="switchTab('element')">4. POISON &amp; ELEMENTAL</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-combat" onclick="switchTab('combat')">5. COMBAT &amp; SHIELDS</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-mobility" onclick="switchTab('mobility')">6. MOBILITY &amp; VIP</a>
+        <a href="javascript:void(0);" class="tab-btn" id="tabbtn-settings" onclick="switchTab('settings')">7. SETTINGS &amp; TELEPORT</a>
     </div>
 
     <!-- Interactive Command Helper Banner -->
@@ -377,6 +378,274 @@ html, body {
         </div>
         <div class="cmd-banner-right">
             <input type="text" id="cmd-preview" class="cmd-input" value="say /gold" readonly="readonly">
+        </div>
+    </div>
+
+    <!-- SECTION: V15.0-ULTIMATE PHASE-SHIFT & QUANTUM LAB (11 NEW COMPLEX FEATURES) -->
+    <div id="sec-phaselab" class="tab-section tab-section-active">
+        <div class="clearfix">
+            <div class="col-half col-left">
+                <div class="panel-card" style="border-color:#00d8ff;">
+                    <div class="panel-header" style="color:#00e5ff;">* 7. Phase-Shift Execution &amp; Quantum Lab (Corpse Explosion + Teleport)</div>
+                    <table class="shop-table">
+                        <tr id="row-phaseshift">
+                            <td>
+                                <span class="item-title" style="color:#55f2ff;">Phase-Shift Corpse Explosion + Blink Teleport</span>
+                                <span class="badge-tier tier-gold">SIGNATURE V15</span><br>
+                                <span class="item-desc">Enemy body explodes in plasma circle beams, blood &amp; sprites; teleports you to victim's death spot (Auto or Manual [Press E])!</span>
+                            </td>
+                            <td class="price-cell">450-1100p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy phaseshift1" onclick="triggerCmd('say /buy phaseshift1', 'Buy Phase-Shift Execution T1 (450 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy phaseshift2" onclick="triggerCmd('say /buy phaseshift2', 'Buy Phase-Shift Execution T2 (750 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy phaseshift3" onclick="triggerCmd('say /buy phaseshift3', 'Buy Phase-Shift Execution T3 (1100 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell phaseshift1" onclick="triggerCmd('say /sell phaseshift1', 'Sell Phase-Shift Execution')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="item-title">Phase-Shift Teleport Mode &amp; Explosion Style</span><br>
+                                <span class="item-desc">Switch between <strong>AUTOMATIC</strong> (instant warp on kill) or <strong>MANUAL [Press E]</strong> (HUD prompt), plus 5 Plasma Explosion VFX!</span>
+                            </td>
+                            <td class="price-cell">FREE CFG</td>
+                            <td class="action-cell">
+                                <a class="btn btn-opt" href="cmd:say /tpmode" onclick="triggerCmd('say /tpmode', 'Toggle Phase-Shift Teleport Mode: AUTOMATIC vs MANUAL [Press E]')">AUTO / [E]</a>
+                                <a class="btn btn-opt" href="cmd:say /expstyle" onclick="triggerCmd('say /expstyle', 'Cycle 5 Corpse Explosion VFX Styles (Cyan/Crimson/Emerald/Gold/Void)')">VFX STYLE</a>
+                            </td>
+                        </tr>
+                        <tr id="row-vortex">
+                            <td><span class="item-title">Gravity Vortex Black Hole Rounds</span> <span class="item-desc">(Pulls nearby enemies inward on bullet impact + implosion VFX)</span></td>
+                            <td class="price-cell">350-900p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy vortex1" onclick="triggerCmd('say /buy vortex1', 'Buy Gravity Vortex T1 (350 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy vortex2" onclick="triggerCmd('say /buy vortex2', 'Buy Gravity Vortex T2 (600 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy vortex3" onclick="triggerCmd('say /buy vortex3', 'Buy Gravity Vortex T3 (900 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell vortex1" onclick="triggerCmd('say /sell vortex1', 'Sell Gravity Vortex')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-chrono">
+                            <td><span class="item-title">Cyber Chrono Time-Rewind Matrix</span> <span class="item-desc">(Rewinds position &amp; restores HP before lethal damage)</span></td>
+                            <td class="price-cell">400-1000p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy chrono1" onclick="triggerCmd('say /buy chrono1', 'Buy Cyber Chrono Rewind T1 (400 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy chrono2" onclick="triggerCmd('say /buy chrono2', 'Buy Cyber Chrono Rewind T2 (700 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy chrono3" onclick="triggerCmd('say /buy chrono3', 'Buy Cyber Chrono Rewind T3 (1000 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell chrono1" onclick="triggerCmd('say /sell chrono1', 'Sell Cyber Chrono Rewind')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-orbital">
+                            <td><span class="item-title">Orbital Ion Cannon Sky-Strike</span> <span class="item-desc">(Calls vertical sky-to-ground laser beam &amp; blast on hit)</span></td>
+                            <td class="price-cell">450-1150p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy orbital1" onclick="triggerCmd('say /buy orbital1', 'Buy Orbital Ion Cannon T1 (450 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy orbital2" onclick="triggerCmd('say /buy orbital2', 'Buy Orbital Ion Cannon T2 (800 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy orbital3" onclick="triggerCmd('say /buy orbital3', 'Buy Orbital Ion Cannon T3 (1150 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell orbital1" onclick="triggerCmd('say /sell orbital1', 'Sell Orbital Ion Cannon')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-tesla">
+                            <td><span class="item-title">Tesla Chain-Lightning Overdrive</span> <span class="item-desc">(Arcs electric bolts between nearby enemies on hit)</span></td>
+                            <td class="price-cell">350-900p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy tesla1" onclick="triggerCmd('say /buy tesla1', 'Buy Tesla Chain-Lightning T1 (350 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy tesla2" onclick="triggerCmd('say /buy tesla2', 'Buy Tesla Chain-Lightning T2 (600 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy tesla3" onclick="triggerCmd('say /buy tesla3', 'Buy Tesla Chain-Lightning T3 (900 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell tesla1" onclick="triggerCmd('say /sell tesla1', 'Sell Tesla Chain-Lightning')">SELL</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-half">
+                <div class="panel-card" style="border-color:#f39c12;">
+                    <div class="panel-header" style="color:#ffd700;">* 8. Apex Cybernetic Weapons Lab (Forcefields, Executioner &amp; Souls)</div>
+                    <table class="shop-table">
+                        <tr id="row-dome">
+                            <td><span class="item-title">Aegis Nano-Dome Forcefield</span> <span class="item-desc">(-20% to -40% incoming damage + AoE team heal ring every 2s)</span></td>
+                            <td class="price-cell">350-900p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy dome1" onclick="triggerCmd('say /buy dome1', 'Buy Aegis Nano-Dome T1 (350 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy dome2" onclick="triggerCmd('say /buy dome2', 'Buy Aegis Nano-Dome T2 (600 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy dome3" onclick="triggerCmd('say /buy dome3', 'Buy Aegis Nano-Dome T3 (900 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell dome1" onclick="triggerCmd('say /sell dome1', 'Sell Aegis Nano-Dome')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-decoy">
+                            <td><span class="item-title">Phantom Hologram Decoy Clone</span> <span class="item-desc">(Spawns hologram burst + evasive stealth when hit)</span></td>
+                            <td class="price-cell">300-800p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy decoy1" onclick="triggerCmd('say /buy decoy1', 'Buy Phantom Hologram Decoy T1 (300 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy decoy2" onclick="triggerCmd('say /buy decoy2', 'Buy Phantom Hologram Decoy T2 (550 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy decoy3" onclick="triggerCmd('say /buy decoy3', 'Buy Phantom Hologram Decoy T3 (800 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell decoy1" onclick="triggerCmd('say /sell decoy1', 'Sell Phantom Hologram Decoy')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-exec">
+                            <td><span class="item-title">Guillotine Executioner Protocol</span> <span class="item-desc">(Instantly executes enemies below 22%/30%/38% HP + Gold bonus)</span></td>
+                            <td class="price-cell">400-1000p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy exec1" onclick="triggerCmd('say /buy exec1', 'Buy Guillotine Executioner T1 (400 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy exec2" onclick="triggerCmd('say /buy exec2', 'Buy Guillotine Executioner T2 (700 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy exec3" onclick="triggerCmd('say /buy exec3', 'Buy Guillotine Executioner T3 (1000 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell exec1" onclick="triggerCmd('say /sell exec1', 'Sell Guillotine Executioner')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-emp">
+                            <td><span class="item-title">EMP Armor Siphon Pulse</span> <span class="item-desc">(Drains 15/30/50 Kevlar AP from enemy &amp; adds to your armor)</span></td>
+                            <td class="price-cell">250-650p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy emp1" onclick="triggerCmd('say /buy emp1', 'Buy EMP Armor Siphon T1 (250 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy emp2" onclick="triggerCmd('say /buy emp2', 'Buy EMP Armor Siphon T2 (450 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy emp3" onclick="triggerCmd('say /buy emp3', 'Buy EMP Armor Siphon T3 (650 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell emp1" onclick="triggerCmd('say /sell emp1', 'Sell EMP Armor Siphon')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-meteor">
+                            <td><span class="item-title">Meteor Slam Shockwave Boots</span> <span class="item-desc">(Zero fall damage + Hold [DUCK] mid-air for 360 seismic slam)</span></td>
+                            <td class="price-cell">300-750p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy meteor1" onclick="triggerCmd('say /buy meteor1', 'Buy Meteor Slam Boots T1 (300 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy meteor2" onclick="triggerCmd('say /buy meteor2', 'Buy Meteor Slam Boots T2 (500 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy meteor3" onclick="triggerCmd('say /buy meteor3', 'Buy Meteor Slam Boots T3 (750 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell meteor1" onclick="triggerCmd('say /sell meteor1', 'Sell Meteor Slam Boots')">SELL</a>
+                            </td>
+                        </tr>
+                        <tr id="row-soul">
+                            <td><span class="item-title">Soul Harvester Overcharge</span> <span class="item-desc">(Harvests Soul Orbs on kill; each stack grants +4% DMG &amp; +15 HP)</span></td>
+                            <td class="price-cell">400-1000p</td>
+                            <td class="action-cell">
+                                <a class="btn btn-buy" href="cmd:say /buy soul1" onclick="triggerCmd('say /buy soul1', 'Buy Soul Harvester T1 (400 Pts)')">T1</a>
+                                <a class="btn btn-buy" href="cmd:say /buy soul2" onclick="triggerCmd('say /buy soul2', 'Buy Soul Harvester T2 (700 Pts)')">T2</a>
+                                <a class="btn btn-buy" href="cmd:say /buy soul3" onclick="triggerCmd('say /buy soul3', 'Buy Soul Harvester T3 (1000 Pts)')">T3</a>
+                                <a class="btn btn-sell" href="cmd:say /sell soul1" onclick="triggerCmd('say /sell soul1', 'Sell Soul Harvester')">SELL</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: GITHUB CLOUD NVAULT (SERVERS, ADMINS, USERS, POINTS & FEATURES BOUGHT) -->
+    <div id="sec-nvault" class="tab-section tab-section-active">
+        <div class="panel-card" style="border-color:#4cd137;">
+            <div class="panel-header" style="color:#4cd137;">
+                * GITHUB CLOUD NVAULT DATABASE — SERVERS, ADMINS, USERS, GOLDEN POINTS &amp; FEATURES BOUGHT
+                <span style="float:right;">
+                    <a class="btn btn-opt" href="cmd:say /cloudsync" onclick="triggerCmd('say /cloudsync', 'Force Sync Server &amp; Player nVault to GitHub Cloud')">SYNC IN-GAME (/CLOUDSYNC)</a>
+                </span>
+            </div>
+            <div class="clearfix" style="padding:6px;">
+                <div class="col-half col-left">
+                    <div style="font-weight:bold;color:#ffd700;margin-bottom:4px;font-size:11px;">[1] ACTIVE SERVERS RUNNING PLUGIN</div>
+                    <table class="shop-table" id="nvault-servers-table">
+                        <tr style="background:#141d2b;color:#8fa3b8;font-weight:bold;">
+                            <td>Server Hostname &amp; IP</td>
+                            <td>Map / Players</td>
+                            <td class="action-cell">Status</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">Ghost Cybernetic Gold v15.0-Ultimate [EU #1]</span> <span class="item-desc">(192.168.1.100:27015)</span></td>
+                            <td>de_dust2 (24/32)</td>
+                            <td class="action-cell"><span class="badge-tier tier-active">ONLINE v15</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">Ghost Cyber Arsenal Pro [Phase-Shift Lab #2]</span> <span class="item-desc">(127.0.0.1:27015)</span></td>
+                            <td>de_inferno (18/32)</td>
+                            <td class="action-cell"><span class="badge-tier tier-active">ONLINE v15</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-half">
+                    <div style="font-weight:bold;color:#00e5ff;margin-bottom:4px;font-size:11px;">[2] VERIFIED SERVER ADMINS &amp; ARCHITECTS</div>
+                    <table class="shop-table" id="nvault-admins-table">
+                        <tr style="background:#141d2b;color:#8fa3b8;font-weight:bold;">
+                            <td>Admin Name &amp; SteamID</td>
+                            <td>Role / Access</td>
+                            <td class="price-cell">Points</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">Ghost 996 (Mrghosty996)</span> <span class="item-desc">(STEAM_0:1:99600001)</span></td>
+                            <td><span class="badge-tier tier-gold">FOUNDER / ADMIN</span></td>
+                            <td class="price-cell">999,999 Pts</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-title">Deadly|Darkness</span> <span class="item-desc">(STEAM_0:0:44819210)</span></td>
+                            <td><span class="badge-tier tier-gold">CO-AUTHOR / ADMIN</span></td>
+                            <td class="price-cell">999,999 Pts</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="padding:4px 6px 8px 6px;">
+                <div style="font-weight:bold;color:#88ff70;margin-bottom:4px;font-size:11px;">[3] REGISTERED PLAYERS, GOLDEN POINTS, TELEPORT SETTINGS &amp; FEATURES BOUGHT (LIVE FROM NVAULT_DATA.JSON)</div>
+                <table class="shop-table" id="nvault-users-table">
+                    <tr style="background:#141d2b;color:#8fa3b8;font-weight:bold;">
+                        <td style="width:22%;">Player &amp; SteamID</td>
+                        <td style="width:10%;">Role</td>
+                        <td style="width:11%;">Golden Points</td>
+                        <td style="width:18%;">Phase-Shift Config</td>
+                        <td>Purchased Cybernetic Features &amp; Active Perks</td>
+                    </tr>
+                    <tr>
+                        <td><span class="item-title">Ghost 996</span><br><span class="item-desc">STEAM_0:1:99600001</span></td>
+                        <td><span class="badge-tier tier-gold">ADMIN</span></td>
+                        <td class="price-cell">999,999 Pts</td>
+                        <td><span class="item-desc">TP: <strong style="color:#4cd137;">AUTOMATIC</strong><br>VFX: <strong style="color:#00e5ff;">Cyan Plasma Nova</strong></span></td>
+                        <td>
+                            <span class="badge-tier tier-gold">Lifetime VIP</span>
+                            <span class="badge-tier tier-active">Phase-Shift T3</span>
+                            <span class="badge-tier tier-active">Gravity Vortex T3</span>
+                            <span class="badge-tier tier-active">Cyber Chrono T3</span>
+                            <span class="badge-tier tier-active">Orbital Ion T3</span>
+                            <span class="badge-tier tier-active">Tesla Chain T3</span>
+                            <span class="badge-tier tier-active">Aegis Dome T3</span>
+                            <span class="badge-tier tier-active">Guillotine Exec T3</span>
+                            <span class="badge-tier tier-active">Soul Harvester T3</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="item-title">Deadly|Darkness</span><br><span class="item-desc">STEAM_0:0:44819210</span></td>
+                        <td><span class="badge-tier tier-gold">ADMIN</span></td>
+                        <td class="price-cell">999,999 Pts</td>
+                        <td><span class="item-desc">TP: <strong style="color:#ffd700;">MANUAL [Press E]</strong><br>VFX: <strong style="color:#ff5252;">Crimson Supernova</strong></span></td>
+                        <td>
+                            <span class="badge-tier tier-gold">Lifetime VIP</span>
+                            <span class="badge-tier tier-active">Phase-Shift T3</span>
+                            <span class="badge-tier tier-active">Orbital Ion T3</span>
+                            <span class="badge-tier tier-active">Guillotine Exec T3</span>
+                            <span class="badge-tier tier-active">Soul Harvester T3</span>
+                            <span class="badge-tier tier-active">Titan Rounds T3</span>
+                            <span class="badge-tier tier-active">Phoenix Revival T3</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="item-title">CyberHunter_X</span><br><span class="item-desc">STEAM_0:1:58291044</span></td>
+                        <td><span class="badge-tier tier-gold">VIP</span></td>
+                        <td class="price-cell">14,850 Pts</td>
+                        <td><span class="item-desc">TP: <strong style="color:#4cd137;">AUTOMATIC</strong><br>VFX: <strong style="color:#d980fa;">Void Singularity</strong></span></td>
+                        <td>
+                            <span class="badge-tier tier-gold">Golden VIP</span>
+                            <span class="badge-tier tier-active">Phase-Shift T2</span>
+                            <span class="badge-tier tier-active">Tesla Chain T2</span>
+                            <span class="badge-tier tier-active">Meteor Slam T2</span>
+                            <span class="badge-tier tier-active">Double Jump T3</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="item-title">NovaStalker</span><br><span class="item-desc">STEAM_0:0:77412903</span></td>
+                        <td><span class="badge-tier">PLAYER</span></td>
+                        <td class="price-cell">4,200 Pts</td>
+                        <td><span class="item-desc">TP: <strong style="color:#ffd700;">MANUAL [Press E]</strong><br>VFX: <strong style="color:#ffd700;">Solar Gold Flare</strong></span></td>
+                        <td>
+                            <span class="badge-tier tier-active">Phase-Shift T1</span>
+                            <span class="badge-tier tier-active">EMP Armor Siphon T2</span>
+                            <span class="badge-tier tier-active">Speed Boots T2</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -760,7 +1029,7 @@ html, body {
 /* Strict ES5 JavaScript Only - Wrapped in try/catch for GoldSrc MSHTML Stability */
 function switchTab(tabName) {
     try {
-        var sections = ['weapons', 'element', 'mobility', 'settings'];
+        var sections = ['phaselab', 'nvault', 'weapons', 'element', 'mobility', 'settings'];
         var i;
         for (i = 0; i < sections.length; i++) {
             var secEl = document.getElementById('sec-' + sections[i]);
@@ -779,7 +1048,7 @@ function switchTab(tabName) {
             }
         }
 
-        var btns = ['all', 'weapons', 'element', 'combat', 'mobility', 'vip', 'settings'];
+        var btns = ['all', 'phaselab', 'nvault', 'weapons', 'element', 'combat', 'mobility', 'settings'];
         for (i = 0; i < btns.length; i++) {
             var btnEl = document.getElementById('tabbtn-' + btns[i]);
             if (btnEl) {
@@ -858,9 +1127,53 @@ function initShopPage() {
         setElText('ui-role', qRole, 'GOLD VIP');
         setElText('ui-preset', qPreset, 'Golden AK-47 Pack');
         setElText('ui-autobuy', qAuto, 'ON');
-        setElText('ui-menumode', qMode, 'Both (Classic + MOTD)');
-        setElText('ui-fx', qFx, 'Cyan / Gold');
-        setElText('ui-active-perks', qPerks, 'Ready');
+        setElText('ui-menumode', qMode, 'Classic Menu (Crash-Free)');
+        setElText('ui-fx', qFx, 'Cyan Plasma / Gold');
+        setElText('ui-active-perks', qPerks, '38 Perks Ready');
+        loadCloudNvaultJson();
+    } catch (e) {}
+}
+
+function loadCloudNvaultJson() {
+    try {
+        if (!window.XMLHttpRequest) return;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'nvault_data.json?t=' + (new Date().getTime()), true);
+        xhr.onreadystatechange = function() {
+            try {
+                if (xhr.readyState === 4 && xhr.status === 200 && xhr.responseText) {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data && data.users && data.users.length > 0) {
+                        var tbl = document.getElementById('nvault-users-table');
+                        if (tbl) {
+                            var htmlRows = '<tr style="background:#141d2b;color:#8fa3b8;font-weight:bold;">' +
+                                '<td style="width:22%;">Player &amp; SteamID</td>' +
+                                '<td style="width:10%;">Role</td>' +
+                                '<td style="width:11%;">Golden Points</td>' +
+                                '<td style="width:18%;">Phase-Shift Config</td>' +
+                                '<td>Purchased Cybernetic Features &amp; Active Perks</td></tr>';
+                            for (var u = 0; u < data.users.length; u++) {
+                                var usr = data.users[u];
+                                var badges = '';
+                                var fb = usr.features_bought || [];
+                                for (var f = 0; f < fb.length; f++) {
+                                    badges += '<span class="badge-tier tier-active" style="margin-right:3px;">' + fb[f] + '</span> ';
+                                }
+                                if (badges === '') badges = '<span class="item-desc">None</span>';
+                                htmlRows += '<tr>' +
+                                    '<td><span class="item-title">' + usr.name + '</span><br><span class="item-desc">' + usr.authid + '</span></td>' +
+                                    '<td><span class="badge-tier tier-gold">' + usr.role + '</span></td>' +
+                                    '<td class="price-cell">' + usr.golden_points + ' Pts</td>' +
+                                    '<td><span class="item-desc">TP: <strong style="color:#4cd137;">' + (usr.teleport_mode || 'AUTOMATIC') + '</strong><br>VFX: <strong style="color:#00e5ff;">' + (usr.explosion_style || 'Cyan Plasma') + '</strong></span></td>' +
+                                    '<td>' + badges + '</td></tr>';
+                            }
+                            tbl.innerHTML = htmlRows;
+                        }
+                    }
+                }
+            } catch (e2) {}
+        };
+        xhr.send(null);
     } catch (e) {}
 }
 
